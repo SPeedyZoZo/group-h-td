@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     void EndGame() {
         gameEnded = true;
-        Debug.Log("game over");
+        Debug.Log("game over, display lose message");
         loseText.enabled = true;
         Time.timeScale = 0;
     }
