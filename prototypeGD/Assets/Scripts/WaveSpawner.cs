@@ -8,6 +8,9 @@ public class WaveSpawner : MonoBehaviour
     public Transform enemyPrefab;
     public Transform spawnPoint;
 
+    public int goalWave;
+    public TMPro.TextMeshProUGUI winText;
+
     public float timeBetweenWaves;
     public float timeBetweenSpawns;
     public float countDown;
@@ -31,6 +34,14 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave () 
     {
         waveIndex++;
+
+        if (waveIndex >= goalWave)
+        {
+            Time.timeScale = 0;
+            Debug.Log("Win");
+            winText.enabled = true;
+        }
+
         for (int i = 0; i < waveIndex; i++)
         {
             SpawnEnemy();
