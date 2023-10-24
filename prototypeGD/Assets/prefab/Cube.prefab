@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2416212814021920293}
   - component: {fileID: 1739818587145329076}
   - component: {fileID: 2153887088239619666}
+  - component: {fileID: 6723048948094809652}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2416212814021920293
 MeshFilter:
@@ -105,3 +106,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6723048948094809652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5062145717446395909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b5c7c3eb8ff924e9efba704f547060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.8113208, g: 0.38576004, b: 0.7316442, a: 0}
+  positionOffset: {x: 0, y: 0.5, z: 0}
