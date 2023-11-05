@@ -17,4 +17,6 @@ Your lives are displayed at the top centre of the screen, and the time before ne
 You can place multiple towers down on the field (an unlimited amount for this prototype), but cannot place a tower on top of an already existing one.
 You also cannot place towers on the path that the enemies follow, or on the green/red points.
 
+We have not used any external assets, only Unity used assets.
+
 ### THIS README WILL BE UPDATED AS THE GAME EXPANDS IN SCOPE
