@@ -1,4 +1,4 @@
-# Group H TD Game
+# Group H TD Game - ImmunoFortress
 ## ECS657U - Multi-platform Game Development - 2023/24
 
 ### Using Unity Version 2023.1.0f1
