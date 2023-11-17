@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
     public float speed;
     public float distanceToTurn;
+
+    public float maxHealth;
+    private float health;
+
+    public Color maxHealthColor;
+    public Color minHealthColor;
+
+    public AudioClip deathSound;
 
     private Transform target;
     private int wavepointIndex = 0;
@@ -14,6 +21,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         target = Waypoints.points[0];
+        health = maxHealth;
     }
 
     void Update() 
@@ -25,6 +33,9 @@ public class Enemy : MonoBehaviour
         {
             GetNextWaypoint();
         }
+
+        Color color = Color.Lerp(minHealthColor, maxHealthColor, health / maxHealth);
+        gameObject.GetComponent<Renderer>().material.color = color;
     }
 
     void GetNextWaypoint() 
@@ -41,6 +52,22 @@ public class Enemy : MonoBehaviour
     void EndPath()
     {
         PlayerStats.Lives--;
+        Debug.Log(PlayerStats.Lives);
+        Destroy(gameObject);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (damage < health)
+            health -= damage;
+        else
+            Die();
+    }
+
+    void Die()
+    {
+        // award money here (could be event based)
+        AudioSource.PlayClipAtPoint(deathSound, Vector3.zero);
         Destroy(gameObject);
     }
 }

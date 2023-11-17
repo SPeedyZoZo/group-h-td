@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-
-    private Transform target; // change back to public if you want to test/bug fix 
-
-
+    private Enemy target; // change back to public if you want to test/bug fix 
 
     [Header("Attributes")]
 
     public float range;
     public float fireRate = 1f;
     public float fireCountdown = 0f;
+    public AudioClip shootSound;
 
     [Header("Unity Setup Fields")]
 
@@ -47,12 +45,9 @@ public class Turret : MonoBehaviour
         }
 
         if (nearestEnemy != null && shortestDistance <= range)
-        {
-            target = nearestEnemy.transform;
-        } else
-        {
+            target = nearestEnemy.GetComponent<Enemy>();
+        else
             target = null;
-        }
     }
 
     void Update()
@@ -60,7 +55,7 @@ public class Turret : MonoBehaviour
         if (target == null)
             return;
 
-        Vector3 dir = target.position - transform.position;
+        Vector3 dir = target.transform.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler (0f, rotation.y, 0f); // Only rotate Y axis not all
@@ -77,15 +72,13 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
-        // Debug.Log("Shoot");
+        AudioSource.PlayClipAtPoint(shootSound, Vector3.zero);
+
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
         if  (bullet != null)
             bullet.Seek(target);
-
-
-
     }
 
     void OnDrawGizmosSelected()
