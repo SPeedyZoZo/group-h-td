@@ -5,11 +5,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public TMPro.TextMeshProUGUI loseText;
+    public TMPro.TextMeshProUGUI winText;
     private bool gameEnded = false;
 
     void Start()
     {
         loseText.enabled = false;
+        winText.enabled = false;
     }
     void Update()
     {
@@ -24,5 +26,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("game over, display lose message");
         loseText.enabled = true;
         Time.timeScale = 0;
+    }
+
+    public void gameWon()
+    {
+        Debug.Log("GameWon");
+        Time.timeScale = 0;
+        Debug.Log("Win");
+        winText.enabled = true;
     }
 }
