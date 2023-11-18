@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public int moneyValue = 50;
     public float speed;
     public float distanceToTurn;
 
@@ -66,8 +67,13 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        // award money here (could be event based)
+        PlayerStats.Money += moneyValue; // Add the set amount of money to the player's balance
+        Debug.Log("Enemy defeated! Money now --> " + PlayerStats.Money);
+
+        // Play the death sound
         AudioSource.PlayClipAtPoint(deathSound, Vector3.zero);
+
+        // Destroy the enemy game object
         Destroy(gameObject);
     }
 }
