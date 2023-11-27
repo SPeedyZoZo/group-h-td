@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    // Loads the correct scene (will be assigned to buttons)
     public void Play()
     {
         int current = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(current + 1);
+        SceneManager.LoadScene("Level1"); 
+    }
+
+    public void LoadSettings()
+    {
+        SceneManager.LoadScene("Settings");
     }
 }
