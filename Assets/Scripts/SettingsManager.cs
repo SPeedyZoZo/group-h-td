@@ -30,6 +30,11 @@ public class SettingsManager : MonoBehaviour
         volumeSlider.value = PlayerPrefs.GetFloat("Volume", 1.0f); // Default to 100% volume if not set
         volumeSlider.onValueChanged.AddListener(delegate { OnVolumeChange(); });
 
+        // Load the state of the fullscreen toggle
+        bool isFullscreen = PlayerPrefs.GetInt("FullscreenToggle", 0) == 1;
+        Screen.fullScreen = isFullscreen; // Apply the saved fullscreen state
+        fullscreenToggle.isOn = isFullscreen; // Update the toggle UI
+
         // Initialize EventTrigger for volume slider
         EventTrigger trigger = volumeSlider.gameObject.AddComponent<EventTrigger>();
         var pointerDownEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerDown };
@@ -55,9 +60,12 @@ public class SettingsManager : MonoBehaviour
         AudioListener.volume = volumeSlider.value;
     }
     public void SetFullScreen(bool isFullScreen)
-{
-    Screen.fullScreen = isFullScreen;
-}
+    {
+        Screen.fullScreen = isFullScreen;
+
+        // Optionally save the fullscreen state immediately
+        PlayerPrefs.SetInt("FullscreenToggle", isFullScreen ? 1 : 0);
+    }
 
     private void OnPointerDown()
     {
@@ -96,8 +104,11 @@ public class SettingsManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat("Volume", volumeSlider.value);
         PlayerPrefs.SetInt("GraphicsQuality", graphicsQualityDropdown.value);
+        PlayerPrefs.SetInt("FullscreenToggle", fullscreenToggle.isOn ? 1 : 0);
+
         PlayerPrefs.Save();
     }
+
 
     private void BackToMainMenu()
     {
