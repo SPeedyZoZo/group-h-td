@@ -10,6 +10,7 @@ public class SettingsManager : MonoBehaviour
     public Slider volumeSlider;
     public Button saveButton;
     public Button backButton;
+    public Toggle fullscreenToggle; 
     public AudioSource audioSource;
     public AudioClip volumeChangeClip;
     public TMP_Dropdown graphicsQualityDropdown;
@@ -38,15 +39,25 @@ public class SettingsManager : MonoBehaviour
         pointerUpEntry.callback.AddListener((data) => { OnPointerUp(); });
         trigger.triggers.Add(pointerUpEntry);
 
+        // Set up fullscreen toggle
+        fullscreenToggle.isOn = Screen.fullScreen;
+        fullscreenToggle.onValueChanged.AddListener(SetFullScreen);
+
         // Setup button listeners
         saveButton.onClick.AddListener(SaveSettings);
         backButton.onClick.AddListener(BackToMainMenu);
+
+
     }
 
     public void OnVolumeChange()
     {
         AudioListener.volume = volumeSlider.value;
     }
+    public void SetFullScreen(bool isFullScreen)
+{
+    Screen.fullScreen = isFullScreen;
+}
 
     private void OnPointerDown()
     {
