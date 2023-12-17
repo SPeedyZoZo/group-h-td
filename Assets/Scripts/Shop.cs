@@ -1,17 +1,23 @@
 using UnityEngine;
 
-public class shop : MonoBehaviour
+public class Shop : MonoBehaviour
 {
-    public TurretBlueprint standardTurret;     // references abstract class TurretBlueprint
-    BuildManager buildManager;
+    public TurretBlueprint basic;
+    public TurretBlueprint gatling;
+    public TurretBlueprint sniper;
 
-    void Start()
+    public void SelectBasicTurret()
     {
-        buildManager = BuildManager.instance;
+        BuildManager.instance.SelectTurretToBuild(basic);
     }
-    public void selectStandardTurret()
+
+    public void SelectGatlingTurret()
     {
-        Debug.Log("Standard Turret Selected");
-        buildManager.SelectTurretToBuild(standardTurret);
+        BuildManager.instance.SelectTurretToBuild(gatling);
+    }
+
+    public void SelectSniperTurret()
+    {
+        BuildManager.instance.SelectTurretToBuild(sniper);
     }
 }

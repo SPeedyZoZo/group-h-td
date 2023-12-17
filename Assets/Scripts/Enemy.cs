@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static Enemy;
 
 public class Enemy : MonoBehaviour
 {
-    public int moneyValue = 50;
+    public int reward = 50;
     public float speed;
+    public float damage;
     public float distanceToTurn;
 
     public float maxHealth;
@@ -18,6 +21,12 @@ public class Enemy : MonoBehaviour
 
     private Transform target;
     private int wavepointIndex = 0;
+
+    public delegate void DealDamage(float damage);
+    public static event DealDamage onDealDamage;
+
+    public delegate void Death();
+    public static event Death onDeath;
 
     void Start()
     {
@@ -52,8 +61,7 @@ public class Enemy : MonoBehaviour
 
     void EndPath()
     {
-        PlayerStats.Lives--;
-        Debug.Log(PlayerStats.Lives);
+        onDealDamage(damage);
         Destroy(gameObject);
     }
 
@@ -67,13 +75,9 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        PlayerStats.Money += moneyValue; // Add the set amount of money to the player's balance
-        Debug.Log("Enemy defeated! Money now --> " + PlayerStats.Money);
-
-        // Play the death sound
+        onDeath();
+        LevelManager.money += reward;
         AudioSource.PlayClipAtPoint(deathSound, Vector3.zero);
-
-        // Destroy the enemy game object
         Destroy(gameObject);
     }
 }

@@ -27,14 +27,10 @@ public class Node : MonoBehaviour
     void OnMouseDown() // called when mouse is used
     {
         if (!buildManager.canBuild)
-        {
             return;
-        }
 
-        if (turret != null) {
-            Debug.Log("cant place another turret");
+        if (turret != null)
             return;
-        }
 
         buildManager.BuildTurretOn(this);
     }
