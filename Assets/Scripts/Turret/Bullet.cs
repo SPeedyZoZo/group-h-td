@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        Instantiate(impact, transform);
+        Instantiate(impact, transform.position, transform.rotation);
         DealDamage(collider);
         if (!pierce)
             Destroy(gameObject);
