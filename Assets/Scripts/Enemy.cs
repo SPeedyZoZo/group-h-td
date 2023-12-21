@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static Enemy;
 
 public class Enemy : MonoBehaviour
 {
@@ -77,7 +73,7 @@ public class Enemy : MonoBehaviour
     {
         onDeath();
         LevelManager.money += reward;
-        AudioSource.PlayClipAtPoint(deathSound, Vector3.zero);
+        AudioManager.PlayEffect(deathSound, transform.position);
         Destroy(gameObject);
     }
 }

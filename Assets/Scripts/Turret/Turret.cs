@@ -67,7 +67,7 @@ public class Turret : MonoBehaviour
             180f - delta >= accuracy * 180f && 
             nextShootTime <= Time.time)
         {
-            AudioSource.PlayClipAtPoint(shootSound, transform.position);
+            AudioManager.PlayEffect(shootSound, transform.position);
             Instantiate(bullet, barrel.transform.position, transform.rotation);
 
             nextShootTime = Time.time + fireInterval;

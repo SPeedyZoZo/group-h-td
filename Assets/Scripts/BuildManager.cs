@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
@@ -16,10 +14,8 @@ public class BuildManager : MonoBehaviour
     }
     private TurretBlueprint turretToBuild;
 
-    public GameObject standardTurretPrefab;
-
-    public bool canBuild { get { return turretToBuild != null; } }  // property 
-    public bool hasMoney { get { return LevelManager.money >= turretToBuild.cost; } }  // property 
+    public bool canBuild { get { return turretToBuild != null; } }
+    public bool hasMoney { get { return LevelManager.money >= turretToBuild.cost; } }
 
 
     public void BuildTurretOn (Node node)
