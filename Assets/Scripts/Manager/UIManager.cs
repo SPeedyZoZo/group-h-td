@@ -6,6 +6,11 @@ public class UIManager : MonoBehaviour
     public TMPro.TextMeshProUGUI lives;
     public TMPro.TextMeshProUGUI countdown;
 
+    private void Start()
+    {
+        
+    }
+
     private void Update()
     {
         money.text = "$" + LevelManager.money.ToString();
