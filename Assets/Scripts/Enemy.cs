@@ -24,6 +24,9 @@ public class Enemy : MonoBehaviour
     public delegate void Death();
     public static event Death onDeath;
 
+    public GameObject moneyStashPrefab; 
+
+
     void Start()
     {
         health = maxHealth;
@@ -68,8 +71,12 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        GameObject moneyStash = Instantiate(moneyStashPrefab, transform.position, Quaternion.identity);
+
+        MoneyStash moneyStashScript = moneyStash.GetComponent<MoneyStash>();
+        moneyStashScript.moneyAmount = reward;
+
         onDeath();
-        LevelManager.money += reward;
         AudioManager.PlayEffect(deathSound, transform.position);
         Destroy(gameObject);
     }
