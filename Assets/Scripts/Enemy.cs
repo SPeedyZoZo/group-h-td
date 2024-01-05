@@ -89,6 +89,11 @@ public class Enemy : MonoBehaviour
         StartCoroutine(SlowEffect(duration, speedMultiplier));
     }
 
+    public void ApplyBurningEffect(float duration, int damagePerTick)
+    {
+        StartCoroutine(BurningEffect(duration, damagePerTick));
+    }
+
     private IEnumerator SlowEffect(float duration, float speedMultiplier)
     {
         float originalSpeed = speed;
@@ -97,5 +102,18 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         speed = originalSpeed;
+    }
+
+    private IEnumerator BurningEffect(float duration, int damagePerTick)
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            TakeDamage(damagePerTick);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
     }
 }
