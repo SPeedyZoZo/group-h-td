@@ -15,8 +15,8 @@ public class Enemy : MonoBehaviour
 
     public AudioClip deathSound;
 
-    private Transform target;
-    private int wavepointIndex = 0;
+    private Transform[] path;
+    private int pathIndex = -1;
 
     public delegate void DealDamage(float damage);
     public static event DealDamage onDealDamage;
@@ -26,39 +26,36 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        target = Waypoints.points[0];
         health = maxHealth;
+    }
+
+    public void Seek(Transform[] path)
+    {
+        this.path = path;
+        pathIndex = 0;
     }
 
     void Update() 
     {
-        Vector3 direction = target.position - transform.position;
-        transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
-
-        if (Vector3.Distance(transform.position, target.position)<= distanceToTurn) 
+        if (pathIndex != -1)
         {
-            GetNextWaypoint();
+            Transform target = path[pathIndex];
+            Vector3 direction = target.position - transform.position;
+            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+
+            if (Vector3.Distance(transform.position, target.position) <= distanceToTurn)
+            {
+                pathIndex++;
+                if (pathIndex >= path.Length)
+                {
+                    onDealDamage(damage);
+                    Destroy(gameObject);
+                }
+            }
         }
 
         Color color = Color.Lerp(minHealthColor, maxHealthColor, health / maxHealth);
         gameObject.GetComponent<Renderer>().material.color = color;
-    }
-
-    void GetNextWaypoint() 
-    {
-        if (wavepointIndex >= Waypoints.points.Length - 1) 
-        {
-            EndPath();
-            return;
-        }
-        wavepointIndex++;
-        target = Waypoints.points[wavepointIndex];
-    }
-
-    void EndPath()
-    {
-        onDealDamage(damage);
-        Destroy(gameObject);
     }
 
     public void TakeDamage(float damage)
