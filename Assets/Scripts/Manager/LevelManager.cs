@@ -4,23 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [System.Serializable]
-    public struct Wave
-    {
-        public float delay;
-        public float interval;
-        public Enemy[] enemies;
-    }
-
     public int initialMoney = 400;
     public static int money;
-
+    public float nextWaveDelay = 5f;
     public float nextLevelDelay = 3f;
-    public Transform spawn;
-    public Wave[] waves;
 
+    private Spawner[] spawners;
     private static float nextWaveTime;
-    private int activeEnemies = 0;
+    private int enemies = 0;
+
+    private void Awake()
+    {
+        spawners = FindObjectsByType<Spawner>(FindObjectsSortMode.None);
+    }
 
     private void Start()
     {
@@ -34,20 +30,21 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator SpawnWaves()
     {
-        foreach (Wave wave in waves)
+        while (true)
         {
-            activeEnemies = wave.enemies.Length;
+            foreach (Spawner spawner in spawners)
+                enemies += spawner.GetNextWaveEnemies();
 
-            nextWaveTime = Time.time + wave.delay;
+            if (enemies == 0)
+                break;
+
+            nextWaveTime = Time.time + nextWaveDelay;
             yield return new WaitForSeconds(nextWaveTime - Time.time);
 
-            foreach (Enemy enemy in wave.enemies)
-            {
-                Instantiate(enemy, spawn.position, spawn.rotation);
-                yield return new WaitForSeconds(wave.interval);
-            }
+            foreach (Spawner spawner in spawners)
+                StartCoroutine(spawner.SpawnNextWave());
 
-            yield return new WaitUntil(() => activeEnemies == 0);
+            yield return new WaitUntil(() => enemies == 0);
         }
 
         yield return new WaitForSeconds(nextLevelDelay);
@@ -67,12 +64,12 @@ public class LevelManager : MonoBehaviour
 
     private void OnEnemyDeath()
     {
-        activeEnemies--;
+        enemies--;
     }
 
     private void OnEnemyDealDamage(float damage)
     {
-        activeEnemies--;
+        enemies--;
         GameState.lives--;
 
         if (GameState.lives == 0)
