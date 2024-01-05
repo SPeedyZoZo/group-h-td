@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
@@ -79,5 +80,22 @@ public class Enemy : MonoBehaviour
         onDeath();
         AudioManager.PlayEffect(deathSound, transform.position);
         Destroy(gameObject);
+    }
+
+
+    // SKILLS
+    public void ApplySlowEffect(float duration, float speedMultiplier)
+    {
+        StartCoroutine(SlowEffect(duration, speedMultiplier));
+    }
+
+    private IEnumerator SlowEffect(float duration, float speedMultiplier)
+    {
+        float originalSpeed = speed;
+        speed *= speedMultiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        speed = originalSpeed;
     }
 }
