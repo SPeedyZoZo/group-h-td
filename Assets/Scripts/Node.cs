@@ -44,15 +44,18 @@ public class Node : MonoBehaviour
             return;
         }
 
-        if (buildManager.hasMoney) 
+        if (turret != null)
+        {
+            rend.material.color = noMoneyColor;
+        }
+        else if (buildManager.hasMoney)
         {
             rend.material.color = hoverColor;
-        } 
+        }
         else
         {
             rend.material.color = noMoneyColor;
         }
-
     }
 
     void OnMouseExit() // called when mouse exits collider
