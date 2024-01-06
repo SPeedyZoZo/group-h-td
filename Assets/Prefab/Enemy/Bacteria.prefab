@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7088744045352211493
 MeshFilter:
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 376f4fcdc52a87b4e9017f5b2ff7bf34, type: 2}
+  - {fileID: 2100000, guid: 6286f20b5ff2ad4498f8abcef3c5c8ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,14 +100,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reward: 75
   speed: 5
-  damage: 0
+  damage: 150
   distanceToTurn: 0.05
   maxHealthEasy: 30
   maxHealthMedium: 50
   maxHealthHard: 70
-  maxHealthColor: {r: 0.9811321, g: 0.81604815, b: 0.20733352, a: 0}
+  maxHealthColor: {r: 1, g: 0.29411766, b: 0.2784314, a: 0}
   minHealthColor: {r: 1, g: 0.39782178, b: 0.2588235, a: 0}
   deathSound: {fileID: 8300000, guid: e91aad6325856ad439d4f4bda4eceedb, type: 3}
+  hitSound: {fileID: 8300000, guid: 697a7509c279eba45b4901e0005d162b, type: 3}
+  deathParticle: {fileID: 7975970741664304813, guid: a3bc79b508ac6b14ebae24011c1e4b67, type: 3}
   moneyStashPrefab: {fileID: 2363212247307971720, guid: 6d8d364bf6ed57c4c8ba15a74f4cc37f, type: 3}
 --- !u!95 &4643902963567879451
 Animator:

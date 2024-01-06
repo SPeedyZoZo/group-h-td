@@ -21,10 +21,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         money = initialMoney;
-
         Enemy.onDeath += OnEnemyDeath;
-        Enemy.onDealDamage += OnEnemyDealDamage;
-
         StartCoroutine(SpawnWaves());
     }
 
@@ -34,6 +31,7 @@ public class LevelManager : MonoBehaviour
         {
             foreach (Spawner spawner in spawners)
                 enemies += spawner.GetNextWaveEnemies();
+            Debug.Log(enemies);
 
             if (enemies == 0)
                 break;
@@ -65,15 +63,7 @@ public class LevelManager : MonoBehaviour
     private void OnEnemyDeath()
     {
         enemies--;
-    }
-
-    private void OnEnemyDealDamage(float damage)
-    {
-        enemies--;
-        GameState.lives--;
-
-        if (GameState.lives == 0)
-            SceneManager.LoadScene("GameOver");
+        Debug.Log(enemies);
     }
 
     public static float GetCountdown()

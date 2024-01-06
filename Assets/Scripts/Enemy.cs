@@ -19,18 +19,16 @@ public class Enemy : MonoBehaviour
     public Color minHealthColor;
 
     public AudioClip deathSound;
+    public AudioClip hitSound;
+    public GameObject deathParticle;
 
     private Transform[] path;
     private int pathIndex = -1;
-
-    public delegate void DealDamage(float damage);
-    public static event DealDamage onDealDamage;
 
     public delegate void Death();
     public static event Death onDeath;
 
     public GameObject moneyStashPrefab; 
-
 
     void Start()
     {
@@ -66,12 +64,8 @@ public class Enemy : MonoBehaviour
 
             if (Vector3.Distance(transform.position, target.position) <= distanceToTurn)
             {
-                pathIndex++;
-                if (pathIndex >= path.Length)
-                {
-                    onDealDamage(damage);
-                    Destroy(gameObject);
-                }
+                if (pathIndex < path.Length - 1)
+                    pathIndex++;
             }
         }
 
@@ -81,21 +75,23 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        AudioManager.PlayEffect(hitSound, transform.position);
         if (damage < health)
             health -= damage;
         else
             Die();
     }
 
-    void Die()
+    public void Die()
     {
-        GameObject moneyStash = Instantiate(moneyStashPrefab, transform.position, Quaternion.identity);
+        Instantiate(deathParticle, transform.position, transform.rotation);
+        AudioManager.PlayEffect(deathSound, transform.position);
 
+        GameObject moneyStash = Instantiate(moneyStashPrefab, transform.position, Quaternion.identity);
         MoneyStash moneyStashScript = moneyStash.GetComponent<MoneyStash>();
         moneyStashScript.moneyAmount = reward;
 
         onDeath();
-        AudioManager.PlayEffect(deathSound, transform.position);
         Destroy(gameObject);
     }
 
