@@ -105,7 +105,7 @@ MonoBehaviour:
   maxHealthEasy: 250
   maxHealthMedium: 400
   maxHealthHard: 600
-  maxHealthColor: {r: 0.3647059, g: 1, b: 0.47843137, a: 0}
+  maxHealthColor: {r: 0.11997151, g: 0.18867922, b: 0.13227104, a: 0}
   minHealthColor: {r: 1, g: 0.39782178, b: 0.2588235, a: 0}
   deathSound: {fileID: 8300000, guid: e91aad6325856ad439d4f4bda4eceedb, type: 3}
   moneyStashPrefab: {fileID: 2363212247307971720, guid: 6d8d364bf6ed57c4c8ba15a74f4cc37f, type: 3}
