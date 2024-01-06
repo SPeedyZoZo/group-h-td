@@ -123,6 +123,7 @@ MonoBehaviour:
   bounceHeight: 0.1
   bounceSpeed: 3
   dropRadius: 2
+  pickupSound: {fileID: 8300000, guid: 18276d44c87cf854995aefa6e1c2eacd, type: 3}
 --- !u!95 &550251649682503143
 Animator:
   serializedVersion: 7

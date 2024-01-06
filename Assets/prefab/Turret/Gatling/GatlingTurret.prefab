@@ -105,7 +105,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 282ed1ac9ed551244b2cca7ea4c40e21, type: 2}
+  - {fileID: 2100000, guid: 50ca3a7878f95ec4095048ffc03c204b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -243,7 +243,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f5a837db10562544c82454e6d6000aae, type: 2}
+  - {fileID: 2100000, guid: 50ca3a7878f95ec4095048ffc03c204b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -350,7 +350,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f5a837db10562544c82454e6d6000aae, type: 2}
+  - {fileID: 2100000, guid: 50ca3a7878f95ec4095048ffc03c204b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -405,6 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8919068769751018491}
   - component: {fileID: 1393853845863712548}
+  - component: {fileID: 2626130827185654449}
   m_Layer: 0
   m_Name: GatlingTurret
   m_TagString: Untagged
@@ -447,4 +448,26 @@ MonoBehaviour:
   rotationSpeed: 80
   bullet: {fileID: 616828243655139705, guid: 0f9ee0e61e9ba3347bcad1dd1ec7d2a6, type: 3}
   barrel: {fileID: 5689364645152157612}
-  shootSound: {fileID: 8300000, guid: e5980b82097990945a6f1051bb453881, type: 3}
+  shootSound: {fileID: 8300000, guid: ee7249c77d4105e40b4b8f8279798b95, type: 3}
+--- !u!95 &2626130827185654449
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7856550253712480902}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c5ce7382992854344affe427f2f09746, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

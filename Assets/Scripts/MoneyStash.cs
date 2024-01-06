@@ -7,6 +7,7 @@ public class MoneyStash : MonoBehaviour
     public float bounceHeight;
     public float bounceSpeed;
     public float dropRadius;
+    public AudioClip pickupSound;
 
     private bool isCollected = false;
     private float initialYPosition;
@@ -38,6 +39,7 @@ public class MoneyStash : MonoBehaviour
 
     void CollectMoney()
     {
+        AudioManager.PlayEffect(pickupSound, transform.position);
         LevelManager.money += moneyAmount;
         isCollected = true;
         Destroy(gameObject);

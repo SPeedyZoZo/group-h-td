@@ -95,10 +95,12 @@ MonoBehaviour:
   slowDuration: 5
   slowFactor: 0.5
   slowCost: 200
+  slowSound: {fileID: 8300000, guid: 6816a7e3419b9154b9c9110872bceddf, type: 3}
   slowButton: {fileID: 7920583003308930595}
   BurningDuration: 5
   BurningAmount: 10
   BurningCost: 150
+  burningSound: {fileID: 8300000, guid: bc2b08ace9ea00e44830eca28f750a50, type: 3}
   BurningButton: {fileID: 3716754362530493411}
 --- !u!114 &8769080708464590493
 MonoBehaviour:
@@ -1730,7 +1732,7 @@ Transform:
   - {fileID: 8119486364376623464}
   - {fileID: 4214656736184591945}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3017918377556321525
 MonoBehaviour:

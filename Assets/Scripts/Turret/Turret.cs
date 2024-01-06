@@ -14,12 +14,13 @@ public class Turret : MonoBehaviour
 
     private string targetTag = "Enemy";
     private GameObject target;
-
+    private Animator animator;
     private float nextShootTime;
 
     private void Start()
     {
         nextShootTime = Time.time;
+        animator = GetComponent<Animator>();
         InvokeRepeating("AcquireTarget", 0f, 0.5f);
     }
 
@@ -68,8 +69,9 @@ public class Turret : MonoBehaviour
             nextShootTime <= Time.time)
         {
             AudioManager.PlayEffect(shootSound, transform.position);
-            Instantiate(bullet, barrel.transform.position, transform.rotation);
+            animator.Play("Shoot");
 
+            Instantiate(bullet, barrel.transform.position, transform.rotation);
             nextShootTime = Time.time + fireInterval;
         }
     }

@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bbed93a5320839344be51dca7a6dc68b, type: 2}
+  - {fileID: 2100000, guid: 2ce4bccffcc91984ba87f8ccb30dac91, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,6 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8919068769751018491}
   - component: {fileID: 1393853845863712548}
+  - component: {fileID: 4140207087923602703}
   m_Layer: 0
   m_Name: SniperTurret
   m_TagString: Untagged
@@ -146,7 +147,7 @@ Transform:
   - {fileID: 1893419720242798271}
   - {fileID: 240969540040642640}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1393853845863712548
 MonoBehaviour:
@@ -166,4 +167,26 @@ MonoBehaviour:
   rotationSpeed: 25
   bullet: {fileID: 616828243655139705, guid: 9bebe817c8e78254a9316aab203e821f, type: 3}
   barrel: {fileID: 5689364645152157612}
-  shootSound: {fileID: 8300000, guid: e5980b82097990945a6f1051bb453881, type: 3}
+  shootSound: {fileID: 8300000, guid: 5f70640231426c34fae8879004a18916, type: 3}
+--- !u!95 &4140207087923602703
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7856550253712480902}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c5ce7382992854344affe427f2f09746, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
