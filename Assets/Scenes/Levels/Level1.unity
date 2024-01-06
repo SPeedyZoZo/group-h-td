@@ -9051,6 +9051,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3267334160307739771, guid: 4eabde9c1a984cf49bbe0d08bde9d734, type: 3}
+      propertyPath: BurningAmount
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 3611128220229734281, guid: 4eabde9c1a984cf49bbe0d08bde9d734, type: 3}
       propertyPath: m_Camera
       value: 

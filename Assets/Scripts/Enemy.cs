@@ -124,13 +124,15 @@ public class Enemy : MonoBehaviour
     private IEnumerator BurningEffect(float duration, int damagePerTick)
     {
         float elapsedTime = 0f;
+        float tickInterval = 1f; // Adjust this interval as needed
 
         while (elapsedTime < duration)
         {
-            TakeDamage(damagePerTick);
+            float damageThisTick = damagePerTick * tickInterval / duration;
+            TakeDamage(damageThisTick);
 
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            elapsedTime += tickInterval;
+            yield return new WaitForSeconds(tickInterval);
         }
     }
 }
