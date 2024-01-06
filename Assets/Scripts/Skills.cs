@@ -34,7 +34,7 @@ public class Skills : MonoBehaviour
             isSkillActive = true;
             LevelManager.money -= slowCost;
 
-            Enemy[] enemies = FindObjectsOfType<Enemy>();
+            Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
 
             foreach (Enemy enemy in enemies)
             {
@@ -56,7 +56,7 @@ public class Skills : MonoBehaviour
             isBurningSkillActive = true;
             LevelManager.money -= BurningCost;
 
-            Enemy[] enemies = FindObjectsOfType<Enemy>();
+            Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
 
             foreach (Enemy enemy in enemies)
             {

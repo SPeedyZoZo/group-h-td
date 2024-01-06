@@ -47,6 +47,6 @@ public class AudioManager : MonoBehaviour
 
     public static void PlayEffect(AudioClip clip, Vector3 position)
     {
-        AudioSource.PlayClipAtPoint(clip, position, cachedEffectVolume);
+        AudioSource.PlayClipAtPoint(clip, position, effectVolume);
     }
 }
