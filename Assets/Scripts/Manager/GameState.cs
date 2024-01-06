@@ -2,10 +2,18 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
+    public enum Difficulty
+    {
+        Easy,
+        Medium,
+        Hard
+    }
+
     public int startingLives;
     private static int staticStartingLives;
     private static int cachedLives;
     private static int cachedLevel;
+    private static Difficulty cachedDifficulty;
 
     private void Start()
     {
@@ -32,6 +40,23 @@ public class GameState : MonoBehaviour
         {
             cachedLevel = value;
             PlayerPrefs.SetInt("level", cachedLevel);
+            PlayerPrefs.Save();
+        }
+    }
+
+    static private bool inittedDifficulty = false;
+    static public Difficulty difficulty
+    {
+        get
+        {
+            if (!inittedDifficulty)
+                cachedDifficulty = (Difficulty)PlayerPrefs.GetInt("difficulty", (int)Difficulty.Medium);
+            return cachedDifficulty;
+        }
+        set
+        {
+            cachedDifficulty = value;
+            PlayerPrefs.SetInt("difficulty", (int)cachedDifficulty);
             PlayerPrefs.Save();
         }
     }

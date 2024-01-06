@@ -2,12 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Settings : MonoBehaviour
 {
     public AudioManager audioManager;
     public Slider musicVolumeSlider;
     public Slider effectVolumeSlider;
+    public TMP_Dropdown difficultyDropdown;
 
     public AudioClip effectClip;
     private bool shouldPlayEffect;
@@ -16,6 +18,7 @@ public class Settings : MonoBehaviour
     {
         musicVolumeSlider.value = audioManager.musicVolume;
         effectVolumeSlider.value = AudioManager.effectVolume;
+        difficultyDropdown.value = (int)GameState.difficulty;
     }
 
     public void OnMusicVolumeChange(float value)
@@ -36,6 +39,11 @@ public class Settings : MonoBehaviour
     public void OnEffectVolumePointerUp()
     {
         shouldPlayEffect = false;
+    }
+
+    public void OnDifficultyChange(int value)
+    {
+        GameState.difficulty = (GameState.Difficulty)value;
     }
 
     private IEnumerator PlayEffect()

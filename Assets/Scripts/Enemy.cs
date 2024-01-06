@@ -8,7 +8,11 @@ public class Enemy : MonoBehaviour
     public float damage;
     public float distanceToTurn;
 
-    public float maxHealth;
+    public float maxHealthEasy;
+    public float maxHealthMedium;
+    public float maxHealthHard;
+
+    private float maxHealth;
     private float health;
 
     public Color maxHealthColor;
@@ -30,6 +34,19 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        switch (GameState.difficulty)
+        {
+            case GameState.Difficulty.Easy:
+                maxHealth = maxHealthEasy;
+                break;
+            case GameState.Difficulty.Medium:
+                maxHealth = maxHealthMedium;
+                break;
+            case GameState.Difficulty.Hard:
+                maxHealth = maxHealthHard;
+                break;
+        }
+
         health = maxHealth;
     }
 
