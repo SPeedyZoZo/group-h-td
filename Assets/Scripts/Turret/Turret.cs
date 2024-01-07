@@ -21,7 +21,7 @@ public class Turret : MonoBehaviour
     {
         nextShootTime = Time.time;
         animator = GetComponent<Animator>();
-        InvokeRepeating("AcquireTarget", 0f, 0.5f);
+        InvokeRepeating("AcquireTarget", 0f, 0.2f);
     }
 
     private void AcquireTarget()

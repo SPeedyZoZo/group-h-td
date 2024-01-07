@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public static int money;
     public float nextWaveDelay = 5f;
     public float nextLevelDelay = 3f;
+    public bool skipNextLevelScreen = false;
 
     private Spawner[] spawners;
     private static float nextWaveTime;
@@ -31,7 +32,6 @@ public class LevelManager : MonoBehaviour
         {
             foreach (Spawner spawner in spawners)
                 enemies += spawner.GetNextWaveEnemies();
-            Debug.Log(enemies);
 
             if (enemies == 0)
                 break;
@@ -42,7 +42,8 @@ public class LevelManager : MonoBehaviour
             foreach (Spawner spawner in spawners)
                 StartCoroutine(spawner.SpawnNextWave());
 
-            yield return new WaitUntil(() => enemies == 0);
+            yield return new WaitUntil(() => enemies <= 0);
+            enemies = 0;
         }
 
         yield return new WaitForSeconds(nextLevelDelay);
@@ -51,19 +52,20 @@ public class LevelManager : MonoBehaviour
 
     private void NextLevel()
     {
-        int nextLevel = GameState.level + 1;
-        int nextSceneIdx = SceneUtility.GetBuildIndexByScenePath("Level" + nextLevel);
-
-        if (nextSceneIdx == -1)
-            SceneManager.LoadScene("GameWon");
+        if (skipNextLevelScreen)
+        {
+            GameState.level++;
+            SceneManager.LoadScene("Level" + GameState.level);
+        }
         else
+        {
             SceneManager.LoadScene("NextLevel");
+        }
     }
 
     private void OnEnemyDeath()
     {
         enemies--;
-        Debug.Log(enemies);
     }
 
     public static float GetCountdown()

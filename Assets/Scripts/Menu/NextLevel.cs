@@ -7,7 +7,7 @@ public class NextLevel : MonoBehaviour
 
     private void Start()
     {
-        header.text = $"Level {GameState.level} Complete";
+        header.text = $"Level Complete";
         GameState.level++;
     }
 

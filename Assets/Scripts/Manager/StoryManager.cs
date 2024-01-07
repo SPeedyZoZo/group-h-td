@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour
 {
-    public string nextScene;
     public float delay;
 
     private void Start()
@@ -11,8 +10,9 @@ public class StoryManager : MonoBehaviour
         Invoke("LoadNextScene", delay);
     }
 
-    private void LoadNextScene()
+    public void LoadNextScene()
     {
-        SceneManager.LoadScene(nextScene);
+        GameState.level++;
+        SceneManager.LoadScene("Level" + GameState.level);
     }
 }

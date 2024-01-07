@@ -60,14 +60,4 @@ public class GameState : MonoBehaviour
             PlayerPrefs.Save();
         }
     }
-
-    static public void Reset()
-    {
-        cachedLives = staticStartingLives;
-        cachedLevel = 0;
-
-        PlayerPrefs.SetInt("lives", cachedLives);
-        PlayerPrefs.SetInt("level", cachedLevel);
-        PlayerPrefs.Save();
-    }
 }
