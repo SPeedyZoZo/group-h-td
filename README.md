@@ -15,8 +15,8 @@
 
 **External Links**
 
-- **Gameplay Video:** [Link to video]
-- **Project Snapshot:** [Github Project Snapshot]
+- [**Gameplay Video**](https://www.youtube.com/watch?v=lpYYiHsxb9U&ab_channel=ZaidChughtai)
+- [**Project Snapshot**](https://github.com/SPeedyZoZo/group-h-td/releases/tag/final)
 
 **Game Concept**
 
