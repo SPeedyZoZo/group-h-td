@@ -30,10 +30,19 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/GameWon.unity
     guid: 12c9f0c5460e41a4db8d68c64053c717
   - enabled: 1
-    path: Assets/Scenes/Levels/Level1.unity
+    path: Assets/Scenes/Levels/Level0.unity
     guid: f5f07f71a9972e84faf5944384317d70
   - enabled: 1
-    path: Assets/Scenes/Levels/Level5.unity
+    path: Assets/Scenes/Levels/Level1.unity
+    guid: 78a49717e4a4ddb40b0419f0bc3b8f81
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level2.unity
+    guid: 25d0486b87ae1334bb856bd489b7b25e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3.unity
+    guid: c696f1b49a0089b489f2b4a035463a0d
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level4.unity
     guid: 9fec7d014b105d74aa0ef5451bfe3d70
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
