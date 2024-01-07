@@ -147,6 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  damage: 10
+  damage: 8
   pierce: 0
   impact: {fileID: 7975970741664304813, guid: f4f2c742474cb5d40a68e6199e2a1170, type: 3}

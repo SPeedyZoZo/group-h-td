@@ -164,7 +164,7 @@ MonoBehaviour:
   range: 5
   accuracy: 1
   fireInterval: 1
-  rotationSpeed: 100
+  rotationSpeed: 90
   bullet: {fileID: 616828243655139705, guid: 628f0ebab2d896a4e9f643cba9de1101, type: 3}
   barrel: {fileID: 5689364645152157612}
   shootSound: {fileID: 8300000, guid: 4a92b691d2b536c438429bdb84cd3cbf, type: 3}

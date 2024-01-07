@@ -99,12 +99,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 100
-  speed: 2
+  speed: 1.25
   damage: 300
   distanceToTurn: 0.05
   maxHealthEasy: 250
   maxHealthMedium: 400
-  maxHealthHard: 600
+  maxHealthHard: 550
   maxHealthColor: {r: 1, g: 0.83137256, b: 0, a: 0}
   minHealthColor: {r: 1, g: 0.39782178, b: 0.2588235, a: 0}
   deathSound: {fileID: 8300000, guid: e91aad6325856ad439d4f4bda4eceedb, type: 3}
