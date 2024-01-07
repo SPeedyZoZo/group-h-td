@@ -6,6 +6,8 @@
 
 **ImmunoFortress** is a tower defense game developed as a final project for the Multi-platform Game Development course at Queen Mary University London. This game, set within the human body, combines strategic gameplay with an engaging narrative about fighting diseases.
 
+![gameplay](gameplay.png)
+
 **Access the game through:**
 
 - **Web-GL Build:** [Play ImmunoFortress](https://speedyzozo.github.io/group-h-td/build/)
@@ -18,9 +20,9 @@
 
 **Game Concept**
 
-**Title:** ImmunoFortress
-**Concept:** Tower Defense (Document number 3-2)
-**Theme:** Set inside the human body, featuring a red-themed level design to mimic the internal environment. Enemies and towers are designed to represent viruses and defense apparatus, creating a biological feel.
+- **Title:** ImmunoFortress
+- **Concept:** Tower Defense (Document number 3-2)
+- **Theme:** Set inside the human body, featuring a red-themed level design to mimic the internal environment. Enemies and towers are designed to represent viruses and defense apparatus, creating a biological feel.
 
 **Changes Since Prototype**
 
@@ -67,7 +69,7 @@ Use the mouse to interact:
 
 **Development Team**
 
-Zaid Kareem Chughtai  -  @SPeedyZoZo
-Benno Price  -  @bennoprice
-Juan Roca Fabregat  -  @itsjrf
-Tomas Albiol Garcia-Munte  -  @tomas-AGM
+- Zaid Kareem Chughtai  -  [@SPeedyZoZo](https://github.com/SPeedyZoZo)
+- Benno Price  -  [@bennoprice](https://github.com/bennoprice)
+- Juan Roca Fabregat  -  [@itsjrf](https://github.com/itsjrf)
+- Tomas Albiol Garcia-Munte  -  [@tomas-AGM](https://github.com/tomas-AGM)
