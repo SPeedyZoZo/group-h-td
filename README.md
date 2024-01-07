@@ -1,4 +1,4 @@
-# **ImmunoFortress - Group H TD Game**
+# **ImmunoFortress - Group H Tower Defense Game**
 
 **ECS657U - Multi-platform Game Development - 2023/24**
 
