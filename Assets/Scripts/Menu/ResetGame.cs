@@ -5,7 +5,7 @@ public class ResetGame : MonoBehaviour
 {
     private void Start()
     {
-        GameState.Reset();
+        GameState.level = 1;
     }
 
     public void LoadMainMenu()

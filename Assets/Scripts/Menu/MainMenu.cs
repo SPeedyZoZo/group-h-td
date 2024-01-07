@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public int lives = 5;
     public Button continueGame;
 
     private void Start()
@@ -13,7 +14,9 @@ public class MainMenu : MonoBehaviour
 
     public void LoadNewGame()
     {
+        GameState.lives = lives;
         GameState.level = 1;
+
         LoadLevel();
     }
 

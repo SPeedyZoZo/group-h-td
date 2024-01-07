@@ -1236,7 +1236,7 @@ MonoBehaviour:
   musicVolumeSlider: {fileID: 177423699}
   effectVolumeSlider: {fileID: 34002547}
   difficultyDropdown: {fileID: 264412818}
-  effectClip: {fileID: 8300000, guid: e5980b82097990945a6f1051bb453881, type: 3}
+  effectClip: {fileID: 8300000, guid: ee7249c77d4105e40b4b8f8279798b95, type: 3}
 --- !u!4 &501724157
 Transform:
   m_ObjectHideFlags: 0

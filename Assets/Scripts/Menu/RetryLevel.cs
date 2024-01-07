@@ -7,7 +7,7 @@ public class RetryLevel : MonoBehaviour
 
     private void Start()
     {
-        header.text = $"Level {GameState.level} Failed";
+        header.text = $"Level Failed";
     }
 
     public void LoadMainMenu()
